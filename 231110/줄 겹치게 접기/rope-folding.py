@@ -22,4 +22,7 @@ for fold_point in range(1, l):
             break
     else:
         result.append(fold_point)
-print(len(result))
+if l == n-1:
+    print(0)
+else:
+    print(len(result))
