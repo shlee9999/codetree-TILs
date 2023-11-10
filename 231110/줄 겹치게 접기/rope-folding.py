@@ -1,12 +1,12 @@
 import sys
-
 input = sys.stdin.readline
 n, l =  map(int, input().split())
 li = [int(input()) for _ in range(n)]
 arr1 = []
 arr2 = []
 result = []
-for fold_point in range(1, l):
+fold_point = 0.5
+while fold_point < l:
     for i in range(n):
         if li[i] == fold_point:
             continue
@@ -22,7 +22,5 @@ for fold_point in range(1, l):
             break
     else:
         result.append(fold_point)
-if l == n-1:
-    print(0)
-else:
-    print(len(result))
+    fold_point+=0.5
+print(len(result))
