@@ -9,12 +9,14 @@ for i in range(1, n + 1):
 arr.sort()
 
 dp = [0] * (n + 2)
+last = (0, 0)
 for i in range(n):
     e, p, s = arr[i]
     if e > n + 1:
         continue
+    for j in range(last[0], e + 1):
+        dp[j] = last[1]
     dp[e] = max(dp[e], dp[s] + p)
-    if i < n - 1:
-        for j in range(e, n + 2):
-            dp[j] = dp[e]
+    last = (e, dp[e])
+    
 print(dp[n + 1])
