@@ -15,7 +15,6 @@ for i in range(n):
         continue
     dp[e] = max(dp[e], dp[s] + p)
     if i < n - 1:
-        if arr[i + 1][0] <= n + 1:
-            for j in range(e, arr[i + 1][0] + 1):
-                dp[j] = dp[e]
+        for j in range(e, n + 2):
+            dp[j] = dp[e]
 print(dp[n + 1])
